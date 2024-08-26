@@ -25,7 +25,7 @@ const database = client.db(DB_NAME);
 console.log("Connected to MongoDB!");
 
 app.get("/", (req, res) => {
-    res.send("Welcome to the Nursing Home API 2.0");
+    res.send("Welcome to the chat bot backend");
 });
 
 app.get("/api/:category/fetch", async (req, res) => {
