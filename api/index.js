@@ -1,3 +1,6 @@
+const authRoutes = require("../routes/authRoutes");
+const messegeRoutes = require("../routes/messegeRoutes");
+
 const URI = "mongodb+srv://matzsolutions:2VVG2QxBAMub9Oaz@cluster0.gyal2.mongodb.net";
 const DB_NAME = "healthcare";
 
@@ -18,12 +21,13 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
 const { MongoClient } = require("mongodb");
+const { getConnectionFromPool } = require("../config/connection");
 const client = new MongoClient(URI);
 client.connect();
 
 const database = client.db(DB_NAME);
 console.log("Connected to MongoDB!");
-
+getConnectionFromPool();
 app.get("/", (req, res) => {
     res.send("Welcome to the chat bot backend");
 });
@@ -66,6 +70,9 @@ app.get("/api/:category/fetch", async (req, res) => {
         res.status(500).json({ error: e });
     }
 });
+
+app.use("/", authRoutes);
+app.use("/",messegeRoutes)
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
