@@ -10,6 +10,7 @@ exports.selectQuery = (table, ...field) => {
   };
 
 
-  exports.insertSignUpQuery = "INSERT INTO register(name,email,password,address,currentdate) VALUES (?,?,?,?,?)";
+  exports.insertSignUpQuery = "INSERT INTO user_register(fname,lname,email,password,phoneNumber,region,city,country,address,profilePic,currentdate) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+  // exports.insertSignUpQuery = "INSERT INTO user_register(id,fname,lname,email,password) VALUES (?,?,?,?,?)";
 
   exports.insertMessgeQuery = "INSERT INTO messages (fromId, toId, message,role) VALUES (?, ?, ?,?)";

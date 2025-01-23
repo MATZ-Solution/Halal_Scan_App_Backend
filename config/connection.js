@@ -5,15 +5,21 @@ let pool;
 const createPool = async () => {
   if (pool) return pool;
 
-  pool = await mySql2.createPool({
-    connectionLimit: 50,
-    host: "153.92.7.247",
-   // host: "39.48.153.157",
-    user: "matzsolu_root_iccd",
-    password: "Windows!@#$5678",
-    database: "matzsolu_iccd"
+ 
+   pool = await mySql2.createPool({
+    
+
+    connectionLimit: 10, 
+    host: "93.127.192.89",
+  port:"3306",
+  user:"matzsolu_halal_Scan_Backend",
+    password:")f-Rhc+pv[HP",
+    database:"matzsolu_hallal_Scan_Backend"
+
+
 
   });
+  
 
   return pool;
 };
