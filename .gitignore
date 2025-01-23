@@ -1,2 +1,2 @@
 /node_modules
-/s3
+/config/s3.js
